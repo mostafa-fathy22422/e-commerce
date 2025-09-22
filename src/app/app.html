@@ -14,8 +14,7 @@
     <app-wish-list [showWishList]="WishList" (showWishListChange)="showWishList($event)"/>
   }
 }
-
-@defer (on interaction(nav)) {
-
+@defer {
+  <app-footer/>
 }
-<app-footer/>
+
