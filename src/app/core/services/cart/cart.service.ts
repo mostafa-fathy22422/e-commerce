@@ -172,7 +172,7 @@ export class CartService {
     return this.http
       .post<{
         session: { url: string };
-      }>(`${environment.baseUrl}orders/checkout-session/${cartId}?url=http://localhost:4200`, {
+      }>(`${environment.baseUrl}orders/checkout-session/${cartId}?url=https://e-commerce-delta-opal.vercel.app`, {
         shippingAddress,
       })
       .pipe(
