@@ -1,0 +1,72 @@
+<section class="container min-h-screen ">
+  <div class="flex min-h-full flex-col justify-center py-16 grow ">
+    <div class="sm:mx-auto sm:w-full sm:max-w-md">
+      <h2 class="text-center text-2xl/9 font-bold tracking-tight text-gray-900">
+        <span class="dark:text-white">{{ 'register.Register Now'| translate }}</span>
+      </h2>
+    </div>
+
+    <div class="mt-6 sm:mx-auto sm:w-full sm:max-w-[550px]">
+      <div
+        class="bg-white dark:bg-gray-800/50 px-6 py-8 shadow-lg sm:rounded-lg sm:px-12 backdrop-blur-sm border border-gray-100 dark:border-gray-700/50">
+        <form
+          (ngSubmit)="handelSubmit()"
+          [formGroup]="registerForm"
+          class="space-y-6"
+        >
+          <app-input
+            [control]="nameController"
+            [id]="'name'"
+            [label]="'register.Name'"
+            [type]="'text'"
+          ></app-input>
+
+          <app-input
+            [control]="emailController"
+            [id]="'email'"
+            [label]="'register.Email'"
+            [type]="'email'"
+          ></app-input>
+
+          <app-input
+            [control]="passwordController"
+            [id]="'password'"
+            [label]="'register.Password'"
+            [type]="'password'"
+          >
+            {{ 'common.mast start with'| translate }}
+          </app-input>
+
+          <app-input
+            [control]="rePasswordController"
+            [id]="'rePassword'"
+            [label]="'register.RePassword'"
+            [type]="'password'"
+          ></app-input>
+
+          <app-input
+            [control]="phoneController"
+            [id]="'phone'"
+            [label]="'register.Phone'"
+            [type]="'text'"
+          >
+            {{ 'common.must be Egyptian number'| translate }}
+          </app-input>
+
+          <div>
+            <button
+              class="flex w-full justify-center rounded-md bg-green-600 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-xs hover:bg-green-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600"
+              type="submit"
+            >
+              @if (isLoading | async) {
+                {{ 'common.Loading'| translate }}
+              } @else {
+                {{ 'register.Register'| translate }}
+              }
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

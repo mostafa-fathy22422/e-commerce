@@ -1,0 +1,43 @@
+<section class="pt-5  ">
+  <owl-carousel-o [options]="customOptions" class="relative">
+    @if (isLoading) {
+      <!-- Skeleton loading placeholders -->
+      @for (item of [].constructor(7); track $index) {
+        <ng-template carouselSlide>
+          <div
+            class="overflow-hidden rounded-lg bg-white dark:bg-gray-800 shadow-sm animate-pulse border border-gray-50 dark:border-gray-700 mb-2"
+          >
+            <div class="">
+              <div class="w-full h-[251px] bg-gray-200 dark:bg-gray-700 rounded"></div>
+            </div>
+            <div class="bg-gray-100 dark:bg-gray-700/50 px-4 py-5 sm:px-6 animate-pulse">
+              <div class="h-4 bg-gray-200 dark:bg-gray-600 rounded w-3/4"></div>
+            </div>
+          </div>
+        </ng-template>
+      }
+    } @else {
+      @for (category of categories; track category._id; let i = $index) {
+        <ng-template carouselSlide>
+          <div
+            class="rounded-lg bg-white dark:bg-gray-800 overflow-hidden border h-fit border-gray-50 dark:border-gray-700 relative shadow-sm mb-2"
+          >
+            <div class="relative h-[250px]  overflow-hidden">
+              <img
+                [ngSrc]="category.image"
+                [alt]="category.name"
+                class="object-cover"
+                [priority]="i <= 2"
+                fill
+              />
+            </div>
+
+            <div class="bg-gray-50 dark:bg-gray-700/50 px-4 py-4 sm:px-6">
+              <h3 class="dark:text-gray-200">{{ category.name }}</h3>
+            </div>
+          </div>
+        </ng-template>
+      }
+    }
+  </owl-carousel-o>
+</section>

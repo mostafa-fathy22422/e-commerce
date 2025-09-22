@@ -1,0 +1,83 @@
+<section #productsSection class="container min-h-screen ">
+  <div class="mb-5 sm:mt-0  flex flex-col sm:flex-row justify-between items-center mx-2 gap-4">
+    <!-- Search Bar -->
+    <!--    <div class="w-full sm:w-auto order-1 sm:order-none">-->
+    <!--      <app-search (searchEvent)="onSearchChange($event)"></app-search>-->
+    <!--    </div>-->
+
+    <!-- Items Per Page Dropdown -->
+    <div class="grid w-full max-w-16 grid-cols-1 order-2 ">
+      <select
+        (ngModelChange)="onItemsPerPageChange(itemsPerPage)"
+        [(ngModel)]="itemsPerPage"
+        aria-label="Items per page"
+        class="col-start-1 row-start-1 appearance-none rounded-md bg-white dark:bg-gray-700 py-1.5 pr-8 pl-3 text-base text-gray-900 dark:text-gray-200 outline-1 -outline-offset-1 outline-gray-300 dark:outline-gray-600 focus:outline-2 focus:-outline-offset-2 focus:outline-main-500 sm:text-sm/6"
+        name="items-per-page"
+      >
+        <option value="12">12</option>
+        <option value="18">18</option>
+        <option value="24">24</option>
+        <option value="30">30</option>
+        <option value="36">36</option>
+        <option value="42">42</option>
+        <option value="48">48</option>
+      </select>
+      <svg
+        aria-hidden="true"
+        class="pointer-events-none col-start-1 row-start-1 mr-2 size-5 self-center justify-self-end text-gray-500 dark:text-gray-400 sm:size-4"
+        data-slot="icon"
+        fill="currentColor"
+        viewBox="0 0 16 16"
+      >
+        <path
+          clip-rule="evenodd"
+          d="M4.22 6.22a.75.75 0 0 1 1.06 0L8 8.94l2.72-2.72a.75.75 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 7.28a.75.75 0 0 1 0-1.06Z"
+          fill-rule="evenodd"
+        />
+      </svg>
+    </div>
+
+  </div>
+  <div class="">
+    <ul
+      class="grid mb-4 grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 mx-2 xl:grid-cols-6 "
+      role="list"
+    >
+      @if (isLoading) {
+        @for (item of itemsPerLoadingPage; track $index) {
+          <li
+            class="group relative flex flex-col overflow-hidden rounded-lg border border-gray-200 bg-white dark:bg-gray-800 dark:border-gray-700"
+          >
+            <app-loading-card></app-loading-card>
+          </li>
+        }
+      } @else {
+        @for (product of products; track product._id) {
+          <li
+            class="group relative flex flex-col overflow-hidden rounded-lg border border-gray-200 bg-white hover:shadow shadow-green-300 dark:bg-gray-800 dark:border-gray-700"
+          >
+            <app-card [product]="product" [index]="$index"></app-card>
+          </li>
+        }
+      }
+    </ul>
+    <!--! Pagination controls -->
+    <nav class="flex items-center justify-center border-t pb-5 border-gray-200 dark:border-gray-700 px-4 sm:px-0">
+      <div class="-mt-px flex">
+        @for (page of pages; track page) {
+          <a [routerLink]="['/products']"
+             [queryParams]="{ page: page, limit: itemsPerPage }"
+             class="cursor-pointer inline-flex items-center border-t-2 px-4 pt-4 text-sm font-medium"
+             [class]="
+                  page == currentPage
+                    ? 'border-main-500 text-main-600 dark:border-main-600 dark:text-green-400'
+                    : 'border-transparent text-gray-500 hover:border-gray-400 hover:text-gray-700 dark:text-gray-400 dark:hover:border-gray-500 dark:hover:text-gray-200'
+                "
+          >
+            {{ page }}</a
+          >
+        }
+      </div>
+    </nav>
+  </div>
+</section>

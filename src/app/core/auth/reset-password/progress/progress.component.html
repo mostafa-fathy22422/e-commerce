@@ -1,0 +1,103 @@
+<nav aria-label="Progress" class="mb-11">
+  <ol class="flex items-center justify-between" role="list">
+    <li class="relative grow">
+      <!-- Completed Step -->
+      <div aria-hidden="true" class="absolute inset-0 flex items-center">
+        <div
+          [class]="
+            step === 1
+              ? 'h-0.5 w-full bg-gray-200'
+              : 'h-0.5 w-full  bg-main-500'
+          "
+          class=""
+        ></div>
+      </div>
+      <span
+        [class]="
+          step === 1
+            ? 'bg-white border-main-500'
+            : 'bg-main-500 border-main-500 '
+        "
+        class="relative flex size-8 border-2 items-center justify-center rounded-full"
+      >
+        <span
+          [class]="step === 1 ? 'bg-main-500' : 'hidden'"
+          aria-hidden="true"
+          class="size-2.5 rounded-full"
+        ></span>
+        <svg
+          [class]="step === 1 ? 'hidden' : ''"
+          aria-hidden="true"
+          class="size-5 text-white"
+          data-slot="icon"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+        >
+          <path
+            clip-rule="evenodd"
+            d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z"
+            fill-rule="evenodd"
+          />
+        </svg>
+        <span class="sr-only">Step 1</span>
+      </span>
+    </li>
+
+    <li class="relative grow">
+      <!-- Current Step -->
+      <div aria-hidden="true" class="absolute inset-0 flex items-center">
+        <div
+          [class]="
+            step <= 2 ? 'h-0.5 w-full bg-gray-200' : 'h-0.5 w-full  bg-main-500'
+          "
+          class="h-0.5 w-full bg-gray-200"
+        ></div>
+      </div>
+      <!--      [class]="step < 2? 'border-gray-300 bg-white ':' border-main-500 bg-white'"-->
+      <span
+        [class]="{
+          '!border-gray-300': step < 2,
+          '!bg-main-500': step > 2,
+        }"
+        aria-current="step"
+        class="relative flex size-8 border-main-500 bg-white items-center justify-center rounded-full border-2"
+      >
+        <span
+          [class]="step === 2 ? 'bg-main-500' : 'hidden'"
+          aria-hidden="true"
+          class="size-2.5 rounded-full"
+        ></span>
+        <svg
+          [class]="step <= 2 ? 'hidden' : ''"
+          aria-hidden="true"
+          class="size-5 text-white"
+          data-slot="icon"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+        >
+          <path
+            clip-rule="evenodd"
+            d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z"
+            fill-rule="evenodd"
+          />
+        </svg>
+        <span class="sr-only">Step 2</span>
+      </span>
+    </li>
+
+    <li class="relative">
+      <!-- Upcoming Step -->
+      <span
+        [class]="step < 3 ? 'border-gray-300 ' : 'border-main-500'"
+        class="relative flex size-8 items-center justify-center rounded-full border-2 bg-white"
+      >
+        <span
+          [class]="step < 3 ? 'bg-white' : 'bg-main-500'"
+          aria-hidden="true"
+          class="size-2.5 rounded-full"
+        ></span>
+        <span class="sr-only">Step 3</span>
+      </span>
+    </li>
+  </ol>
+</nav>

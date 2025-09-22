@@ -1,0 +1,121 @@
+{
+  "navbar": {
+    "Home": "الرئيسية",
+    "Cart": "السلة",
+    "Products": "المنتجات",
+    "Categories": "الفئات",
+    "Brands": "الماركات",
+    "Login": "تسجيل الدخول",
+    "Register": "إنشاء حساب",
+    "Wishlist": "المفضلة",
+    "All_Orders": "كل الطلبات",
+    "Logout": "تسجيل الخروج",
+    "Profile": "الملف الشخصي",
+    "Theme": "الخلفيه",
+    "Language": "اللغة",
+    "Sign_out": "تسجيل الخروج"
+  },
+  "footer": {
+    "Get The FreshCart App": "احصل على تطبيق فرش كارت",
+    "We will send you a link, open it in your phone to download the app": "سنرسل لك رابطًا، افتحه على هاتفك لتحميل التطبيق",
+    "Email address": "عنوان البريد الإلكتروني",
+    "Share App Link": "شارك رابط التطبيق",
+    "Payment Partners": "شركاء الدفع",
+    "Privacy_Policy": "Privacy Policy",
+    "Terms_of_Service": "Terms of Service",
+    "Follow_Us": "Follow Us",
+    "Subscribe_to_Our_Newsletter": "Subscribe to Our Newsletter",
+    "Enter_your_email": "Enter your email",
+    "Subscribe": "Subscribe",
+    "All_Rights_Reserved": "© 2024 YourStore. All rights reserved.",
+    "Quick_Links": "روابط سريعة",
+    "Customer_Service": "خدمة العملاء",
+    "My_Account": "حسابي",
+    "Help": "Help"
+  },
+  "common": {
+    "Loading": "جار التحميل...",
+    "Search products": "ابحث عن منتجات",
+    "All products": "كل المنتجات",
+    "No products found": "لم يتم العثور على منتجات",
+    "Add_to_Cart": "أضف إلى السلة",
+    "View_Details": "عرض التفاصيل",
+    "Out_of_Stock": "غير متوفر",
+    "In_Stock": "متوفر",
+    "Read_More": "اقرأ المزيد",
+    "Read_Less": "اقرأ أقل",
+    "Submit": "إرسال",
+    "Cancel": "إلغاء",
+    "Close": "إغلاق",
+    "Next": "التالي",
+    "Password confirmation is incorrect.": "تأكيد كلمة المرور غير صحيح.",
+    "Input should be at most 20 characters long.": "يجب أن لا يزيد طول الإدخال عن 20 حرف",
+    "must be Egyptian number": "يجب ان يكون رقما مصري",
+    "mast start with": "يجب ان يبدا بحرف كبير و يحتوي من 6 الي 11 حرف",
+    "input is required": "هذا الحقل مطلوب",
+    "Not a valid email address.": "البريد الإلكتروني غير صالح.",
+    "Input should be at least 3 characters long.": "`يجب أن لا يقل طول الإدخال عن 3 أحرف.`"
+  },
+  "product": {
+    "Popular Products": "منتجات شائعة"
+  },
+  "cart": {
+    "Your Cart is Empty": "سلتك فارغة",
+    "Shopping Cart": "عربة التسوق",
+    "Price": "السعر",
+    "Total price": "الإجمالي",
+    "Remove Item": "إزالة العنصر",
+    "Order summary": "ملخص الطلب",
+    "Clear cart": "تفريغ السلة",
+    "Number of cart items": "عدد عناصر السلة",
+    "Total cart price": "السعر الإجمالي للسلة",
+    "Proceed to Checkout": "المتابعة إلى الدفع",
+    "the cart is empty": "سلتك فارغة"
+  },
+  "allOrders": {
+    "Order history": "تاريخ الطلبات",
+    "Order number": "رقم الطلب",
+    "Date placed": "تاريخ الطلب",
+    "Total amount": "المبلغ الإجمالي",
+    "Product": "المنتج",
+    "Total price": "الإجمالي",
+    "Quantity": "الكمية",
+    "Info": "معلومات",
+    "product": "المنتج",
+    "No orders found": "لم يتم العثور على طلبات",
+    "View": "عرض"
+  },
+  "login": {
+    "LOGIN NOW": "تسجيل الدخول",
+    "Login": "تسجيل الدخول",
+    "Email": "البريد الإلكتروني",
+    "Password": "كلمة المرور",
+    "Forgot password?": "هل نسيت كلمة المرور؟"
+  },
+  "register": {
+    "Register Now": "إنشاء حساب جديد",
+    "Register": "إنشاء حساب",
+    "Name": "الاسم",
+    "Email": "البريد الإلكتروني",
+    "Password": "كلمة المرور",
+    "RePassword": "تأكيد كلمة المرور",
+    "Phone": "رقم الهاتف"
+  },
+  "wishlist": {
+    "Your wish list is empty.": "سلتك فارغة.",
+    "your Wish Cart": "قائمة أمنياتك",
+    "Loading your wishlist...": "جارٍ تحميل قائمة أمنياتك...",
+    "Add to cart": "أضف إلى السلة"
+  },
+  "checkout": {
+    "Cash_on_Delivery": "الدفع عند الاستلام",
+    "Credit_Card": "بطاقة الائتمان",
+    "Shipping_Address": "عنوان الشحن",
+    "Details": "تفاصيل",
+    "Phone": "رقم الهاتف",
+    "City": "المدينة"
+  }
+}
+
+
+

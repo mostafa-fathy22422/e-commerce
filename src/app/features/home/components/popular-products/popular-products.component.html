@@ -1,0 +1,35 @@
+<section #productsSection class="">
+  <div class="pb-5 text-xl">
+    <h2 class="dark:text-white">{{ 'product.Popular Products' | translate }}</h2>
+  </div>
+
+  <div class="mb-5 relative z-10">
+    <app-search (searchEvent)="onSearchChange($event)"/>
+  </div>
+  <ul
+    class="grid grid-cols-2 gap-4 mb-5 sm:grid-cols-3 sm:gap-x-6 sm:gap-y-8 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6"
+  >
+    @if (isLoading$ | async) {
+      @for (item of [].constructor(6); track $index) {
+        <app-loading-card/>
+      }
+    } @else {
+      @if (products$ | async; as productsResult) {
+        @for (product of productsResult.paginatedData; track product._id) {
+          <li
+            class="group relative flex flex-col overflow-hidden rounded-lg border border-gray-200 bg-white hover:shadow shadow-green-300 dark:bg-gray-800 dark:border-gray-700"
+          >
+            <app-card [product]="product" [index]="$index"/>
+          </li>
+        }
+      }
+    }
+  </ul>
+  <!--! Pagination controls -->
+  @if (products$ | async; as productsResult) {
+    <app-pagination
+      [pages]="getPagesArray(productsResult.totalPages)"
+      [currentPage]="productsResult.currentPage"
+      (pageChange)="getPage($event)"/>
+  }
+</section>

@@ -1,0 +1,103 @@
+{
+  "navbar": {
+    "Home": "Home",
+    "Cart": "Cart",
+    "Products": "Products",
+    "Categories": "Categories",
+    "Brands": "Brands",
+    "Login": "Login",
+    "Register": "Register",
+    "Wishlist": "Wishlist",
+    "All_Orders": "All Orders",
+    "Logout": "Logout",
+    "Profile": "Profile",
+    "Theme": "Theme",
+    "Language": "Language",
+    "Sign_out": "Sign out"
+  },
+  "footer": {
+    "Get The FreshCart App": "Get The FreshCart App",
+    "We will send you a link, open it in your phone to download the app": "We will send you a link, open it in your phone to download the app",
+    "Email address": "Email address",
+    "Share App Link": "Share App Link",
+    "Payment Partners": "Payment Partners"
+  },
+  "common": {
+    "Loading": "Loading...",
+    "Search products": "Search products",
+    "All products": "All products",
+    "Remove": "Remove",
+    "Add_to_Cart": "Add to Cart",
+    "View_Details": "View Details",
+    "Out_of_Stock": "Out of Stock",
+    "In_Stock": "In Stock",
+    "Read_More": "Read More",
+    "Read_Less": "Read Less",
+    "Password confirmation is incorrect.": "Password confirmation is incorrect.",
+    "mast start with": "mast start with capital letter and must be from 6 to 11 characters",
+    "input is required": "input is required",
+    "Not a valid email address.": "Not a valid email address.",
+    "Input should be at least 3 characters long.": "Input should be at least 3 characters long.",
+    "must be Egyptian number": "must be Egyptian number",
+    "Input should be at most 20 characters long.": "Input should be at most 20 characters long."
+  },
+  "product": {
+    "Popular Products": "Popular Products"
+  },
+  "cart": {
+    "Your Cart is Empty": "Your Cart is Empty",
+    "Shopping Cart": "Shopping Cart",
+    "Price": "Price",
+    "Total price": "Total price",
+    "Remove Item": "Remove Item",
+    "Order summary": "Order summary",
+    "Clear cart": "Clear cart",
+    "Number of cart items": "Number of cart items",
+    "Total cart price": "Total cart price",
+    "Proceed to Checkout": "Proceed to Checkout",
+    "the cart is empty": "the cart is empty"
+  },
+  "allOrders": {
+    "Order history": "Order history",
+    "Order number": "Order number",
+    "Date placed": "Date placed",
+    "Total amount": "Total amount",
+    "Product": "Total",
+    "Total price": "View Details",
+    "Quantity": "No orders found",
+    "Info": "Info",
+    "product": "product",
+    "View": "View"
+  },
+  "login": {
+    "LOGIN NOW": "LOGIN NOW",
+    "loginForm": "loginForm",
+    "Login": "Login",
+    "Email": "Email",
+    "Password": "Password",
+    "Forgot password?": "Forgot password?"
+  },
+  "register": {
+    "Register Now": "Register Now",
+    "Register": "Register",
+    "Name": "Name",
+    "Email": "Email",
+    "Password": "Password",
+    "RePassword": "RePassword",
+    "Phone": "Phone"
+  },
+  "wishlist": {
+    "Your wish list is empty.": "Your wish list is empty.",
+    "your Wish Cart": "your Wish Cart",
+    "Loading your wishlist...": "Loading your wishlist...",
+    "Add to cart": "Add to cart"
+  },
+  "checkout": {
+    "Cash_on_Delivery": "Cash on Delivery",
+    "Credit_Card": "Credit Card",
+    "Shipping_Address": "Shipping Address",
+    "Details": "Details",
+    "Phone": "Phone",
+    "City": "City"
+  }
+}

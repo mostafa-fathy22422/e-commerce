@@ -1,0 +1,26 @@
+<div class=" flex grow z-10">
+  <div class="-me-px grid grow grid-cols-1 focus-within:relative">
+    <input (keyup)="searchEvent.emit(search)"
+           [(ngModel)]="search"
+           class="col-start-1 row-start-1 block w-full rounded-s-md bg-white dark:bg-gray-700 py-1.5 pr-3 pl-10 text-base text-gray-900 dark:text-gray-200 outline-1 -outline-offset-1 outline-gray-300 dark:outline-gray-600 placeholder:text-gray-400 dark:placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-main-600 sm:ps-9 sm:text-sm/6"
+           id="query"
+           name="query" placeholder="{{ 'common.Search products' | translate }}"
+           type="text">
+
+    <svg
+      class="pointer-events-none col-start-1 row-start-1 ms-3 size-5 self-center text-main-700 dark:text-main-500 sm:size-4"
+      fill="currentColor" viewBox="0 0 32 32"
+      xmlns="http://www.w3.org/2000/svg">
+
+      <path
+        d="M19 3C13.488281 3 9 7.488281 9 13C9 15.394531 9.839844 17.589844 11.25 19.3125L3.28125 27.28125L4.71875 28.71875L12.6875 20.75C14.410156 22.160156 16.605469 23 19 23C24.511719 23 29 18.511719 29 13C29 7.488281 24.511719 3 19 3 Z M 19 5C23.429688 5 27 8.570313 27 13C27 17.429688 23.429688 21 19 21C14.570313 21 11 17.429688 11 13C11 8.570313 14.570313 5 19 5Z"/>
+    </svg>
+  </div>
+  <button
+
+    (click)="searchEvent.emit(search='')"
+    class=" rounded-e-md bg-white dark:bg-gray-700 px-3 py-2 text-sm font-semibold text-main-700 dark:text-main-500 outline-1 -outline-offset-1 outline-gray-300 dark:outline-gray-600 hover:bg-main-50 dark:hover:bg-gray-600 focus:relative focus:outline-2 focus:-outline-offset-2 focus:outline-main-600 cursor-pointer"
+    type="button">
+    {{ 'common.All products' | translate }}
+  </button>
+</div>

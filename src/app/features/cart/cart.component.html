@@ -1,0 +1,159 @@
+<div class="bg-white dark:bg-gray-900 container min-h-screen ">
+  <!--  <div class=" w-full fixed bg-white  start-24 top-16 pt-14 pb-16">-->
+
+  <!--  </div>-->
+  @if (cart$ | async; as cartList) {
+    <div class="mx-auto px-4 pt-16 pb-24 sm:px-6 lg:px-8">
+
+      <h1 class="text-3xl font-bold tracking-tight ps-5 text-gray-900 dark:text-white sm:text-4xl ">
+        {{ 'cart.Shopping Cart' | translate }}
+      </h1>
+
+      <div
+        class="mt-12 lg:grid lg:grid-cols-12 lg:items-start lg:gap-x-12 xl:gap-x-16"
+      >
+        <section aria-labelledby="cart-heading" class="lg:col-span-8">
+          <h2 class="sr-only" id="cart-heading">Items in your shopping cart</h2>
+          <ul
+            class="divide-y divide-gray-200 dark:divide-gray-700 border-t border-b border-gray-200 dark:border-gray-700"
+            role="list"
+          >
+            @for (item of cartList?.data?.products ?? []; track item._id; let i = $index) {
+              <li class="flex py-6">
+                <div
+                  class="shrink-0 size-24 sm:size-30 overflow-hidden border-1 rounded-2xl shadow-sm border-gray-100"
+                >
+                  <img
+                    [ngSrc]="item.product.imageCover"
+                    [alt]="item.product.category.slug"
+                    class="rounded-md w-auto h-auto object-cover"
+                    height="223"
+                    width="163"
+                    sizes="(max-width: 768px) 10vw, 10vw"
+                  />
+                </div>
+                <div class="ms-4 flex flex-1 flex-col sm:ms-6">
+                  <div>
+                    <div class="flex justify-between font-medium text-gray-700 dark:text-gray-300">
+                      <h4 class="w-6/12 text-sm font-medium text-gray-700 dark:text-gray-200">
+                        {{ item.product.title }}
+                      </h4>
+                      <div class="w-3/12 flex justify-center items-start">
+                        <button
+                          (click)="sendCount(item.product._id, 'increase')"
+                          class="cursor-pointer size-5 border text-main-500 rounded-sm border-main-500 hover:bg-green-100 hover:text-main-600"
+                        >
+                          <svg
+                            stroke="currentColor"
+                            fill="currentColor"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 50 50"
+                          >
+                            <path
+                              d="M23 9L23 23L9 23L9 27L23 27L23 41L27 41L27 27L41 27L41 23L27 23L27 9Z"
+                            />
+                          </svg>
+                        </button>
+                        <p class="mx-2 text-sm font-medium text-gray-900 dark:text-gray-100">
+                          {{ item.count }}
+                        </p>
+                        <button
+                          (click)="sendCount(item.product._id, 'decrease')"
+                          class="cursor-pointer size-5 border text-main-500 rounded-sm border-main-500 hover:bg-green-100 hover:text-main-600"
+                        >
+                          <svg
+                            stroke="currentColor"
+                            fill="currentColor"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 50 50"
+                          >
+                            <path d="M9 23L9 27L41 27L41 23Z"/>
+                          </svg>
+                        </button>
+                      </div>
+                      <p class="w-3/12 ms-4 text-sm font-medium text-end text-gray-900 dark:text-gray-100">
+                        {{ 'cart.Total price' | translate }}: {{ item.price * item.count }}EGP
+                      </p>
+                    </div>
+                    <p class="mt-1 text-sm text-main-500">
+                      {{ 'cart.Price' | translate }}: {{ item.price }}EGP
+                    </p>
+                  </div>
+                  <div class="mt-4 flex flex-1 items-end justify-between">
+                    <div class="">
+                      <button
+                        (click)="removeFromCart(item.product._id)"
+                        type="button"
+                        class="text-sm font-medium text-red-600 hover:text-red-500 cursor-pointer"
+                      >
+                        {{ 'cart.Remove Item' | translate }}
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            } @empty {
+              <p
+                class="text-center text-gray-500 dark:text-gray-400 text-2xl py-3">{{ 'cart.the cart is empty' | translate }}</p>
+            }
+
+          </ul>
+        </section>
+
+        <!-- Order summary -->
+        <section
+          aria-labelledby="summary-heading"
+          class="mt-16 rounded-lg bg-gray-50 dark:bg-gray-800 px-4 py-6 sm:p-6 lg:col-span-4 lg:mt-0 lg:p-8 lg:sticky top-56"
+        >
+          <div class="flex justify-between items-center">
+            <h2 class="text-lg font-medium text-gray-900 dark:text-white" id="summary-heading">
+              {{ 'cart.Order summary' | translate }}
+            </h2>
+            <button
+              (click)="clearCart()"
+              class="text-sm font-medium text-red-600 hover:text-red-500 cursor-pointer"
+              type="button"
+            >
+              {{ 'cart.Clear cart' | translate }}
+            </button>
+          </div>
+
+          <dl class="mt-6 space-y-4">
+            <div class="flex items-center justify-between">
+              <dt class="text-sm text-gray-600 dark:text-gray-400">{{ 'cart.Number of cart items' | translate }}</dt>
+              <dd class="text-sm font-medium text-gray-900 dark:text-white">
+                {{ cartList?.numOfCartItems }}
+              </dd>
+            </div>
+            <div
+              class="flex items-center justify-between border-t border-gray-200 dark:border-gray-700 pt-4"
+            >
+              <dt class="text-base font-medium text-gray-900 dark:text-white">
+                {{ 'cart.Total cart price' | translate }} :
+              </dt>
+              <dd class="text-base font-medium text-gray-900 dark:text-white">
+                {{ cartList?.data?.totalCartPrice }}EGP
+              </dd>
+            </div>
+          </dl>
+
+          <div class="mt-6">
+            @if (cartList?.data?.products?.length === 0) {
+              <button type="button" (click)="addMassage()"
+                      class="btn py-4">{{ 'cart.Proceed to Checkout' | translate }}
+              </button>
+            } @else {
+              <a [routerLink]="['/checkout',cartList?.data?._id]"
+                 class="btn py-4">{{ 'cart.Proceed to Checkout' | translate }}</a>
+            }
+          </div>
+        </section>
+      </div>
+    </div>
+  } @else {
+    <div class="flex justify-center items-center min-h-[60vh]">
+      <p class="text-center text-gray-500 dark:text-gray-400 text-2xl py-3">Your shopping cart is empty or still
+        loading...</p>
+    </div>
+  }
+</div>

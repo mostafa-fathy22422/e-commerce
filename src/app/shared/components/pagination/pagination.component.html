@@ -1,0 +1,17 @@
+<nav class="flex items-center justify-center border-t pb-5 border-gray-200 dark:border-gray-700 px-4 sm:px-0">
+  <div class="-mt-px flex">
+    @for (page of pages; track page) {
+      <a
+        (click)="getPage(page)"
+        class="cursor-pointer inline-flex items-center border-t-2 px-4 pt-4 text-sm font-medium"
+        [class]="
+          page == currentPage
+            ? 'border-main-500 text-main-600 dark:border-main-600 dark:text-green-400'
+            : 'border-transparent text-gray-500 hover:border-gray-400 hover:text-gray-700 dark:text-gray-400 dark:hover:border-gray-500 dark:hover:text-gray-200'
+        "
+      >
+        {{ page }}</a
+      >
+    }
+  </div>
+</nav>

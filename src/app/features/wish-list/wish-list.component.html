@@ -1,0 +1,110 @@
+@if (isDisplaying) {
+  <div
+    aria-modal="true"
+    class="relative z-40"
+    role="dialog"
+  >
+    <div
+      [@fadeInOut]="showWishList ? 'in' : 'out'"
+      class="fixed inset-0 bg-gray-500/75 dark:bg-gray-900/80 animated-element"
+    ></div>
+
+    <div
+      class="fixed inset-0 z-10 top-20 w-screen overflow-scroll">
+      <div
+        class="flex min-h-full  justify-center text-center items-center px-6 lg:px-8"
+      >
+        <div
+          (@slideInOut.done)="onAnimationDone($event)"
+          [@slideInOut]="showWishList ? 'in' : 'out'"
+          class="flex w-full max-w-3xl text-left text-base sm:my-8 animated-element border rounded-xl  overflow-hidden border-gray-200 dark:border-gray-700"
+        >
+          <div class="relative flex w-full flex-col bg-white dark:bg-gray-800 rounded-lg overflow-hidden">
+
+            <div class="absolute top-0 right-0 left-0 pt-4 bg-gray-100 dark:bg-gray-700">
+              <div class="flex items-center justify-between px-4 sm:px-6 lg:px-8 pb-4">
+                <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">your Wish Cart</h2>
+                <button
+                  (click)="close()"
+                  class="text-gray-400 hover:text-gray-500 dark:text-gray-300 dark:hover:text-gray-100"
+                  type="button"
+                >
+                  <span class="sr-only">Close</span>
+                  <svg
+                    aria-hidden="true"
+                    class="size-6"
+                    data-slot="icon"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M6 18 18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="pt-14 pb-8 sm:pb-6 max-h-[500px]   overflow-y-auto">
+              <section aria-labelledby="cart-heading">
+                <h2 class="sr-only" id="cart-heading">Items in your shopping cart</h2>
+
+                <ul class="divide-y divide-gray-200 dark:divide-gray-600 px-4 sm:px-6 lg:px-8" role="list">
+                  @if (isLoading) {
+                    <p class="text-center py-8 text-gray-500 dark:text-gray-400">Loading your wishlist...</p>
+                  } @else {
+                    @for (item of wishList.data; track item.id) {
+                      <li class="flex py-6">
+                        <div
+                          class="size-24 shrink-0 overflow-hidden rounded-md border border-gray-200 dark:border-gray-600">
+                          <img
+                            alt="{{item.slug}}"
+                            class="size-full object-cover"
+                            [src]="item.imageCover"
+                          />
+                        </div>
+
+                        <div class="ms-4 flex flex-1 flex-col">
+                          <div>
+                            <div class="flex justify-between text-base font-medium text-gray-900 dark:text-gray-100">
+                              <h3>
+                                <a>{{ item.title }}</a>
+                              </h3>
+                              <p class="ms-4">{{ item.price }}EG</p>
+                            </div>
+                            <p class="mt-1 text-sm text-gray-500 dark:text-gray-400">{{ item.description }}</p>
+                          </div>
+                          <div class="flex flex-1 items-end justify-between text-sm">
+                            <div class="flex">
+                              <button
+                                (click)="removeFromWishList(item.id)"
+                                class="font-medium text-red-600 hover:text-red-500 dark:text-red-400 dark:hover:text-red-300"
+                                type="button"
+                              >
+                                Remove
+                              </button>
+                            </div>
+                            <div class="flex">
+                              <button
+                                (click)="addToCart(item.id)"
+                                class="btn "
+                                type="button"
+                              >
+                                Add to cart
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                    } @empty {
+                      <p class="text-center py-8 text-gray-500 dark:text-gray-400">Your wish list is empty.</p>
+                    }
+                  }
+                </ul>
+              </section>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+}

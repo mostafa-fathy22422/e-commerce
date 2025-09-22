@@ -1,0 +1,47 @@
+<footer class="bg-gray-100 dark:bg-gray-800">
+  <div class="container  py-5 ">
+
+    <div class="lg:flex lg:items-center lg:justify-between">
+      <div>
+        <h3
+          class="text-sm/6 font-semibold text-gray-900 dark:text-white">{{ 'footer.Get The FreshCart App'| translate }}</h3>
+        <p
+          class="mt-2 text-sm/6 text-gray-600 dark:text-gray-300">{{ 'footer.We will send you a link, open it in your phone to download the app' | translate }}</p>
+      </div>
+      <div class="mt-6 sm:flex sm:max-w-md lg:mt-0">
+        <label class="sr-only" for="email-address">{{ 'footer.Email address' | translate }}</label>
+        <input autocomplete="email" class="w-full min-w-0 rounded-md bg-white dark:bg-gray-700 px-3 py-1.5 text-base text-gray-900 dark:text-gray-200 outline-1 -outline-offset-1 outline-gray-300 dark:outline-gray-600 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-main-600 dark:focus:outline-main-500 sm:w-56 sm:text-sm/6" id="email-address" name="email-address" placeholder="{{ 'footer.Email address' | translate }}"
+               required
+               type="email">
+        <div class="mt-4 sm:mt-0 sm:ms-4 sm:shrink-0">
+          <button class="btn" type="submit">{{ 'footer.Share App Link' | translate }}</button>
+        </div>
+      </div>
+    </div>
+    <div class="mt-8 border-t border-gray-900/10 dark:border-gray-900 pt-8 md:flex md:items-center md:justify-between">
+      <div class="flex-col columns-1 md:flex md:flex-row items-center justify-between md:items-start  gap-2">
+        <p class="text-lg font-semibold pe-2 dark:text-white">{{ 'footer.Payment Partners' | translate }}</p>
+        <div
+          class="w-full md:w-fit h-10 flex items-center md:justify-center justify-between rounded-xl bg-white  overflow-hidden">
+          <div class="w-24 h-10 flex items-center justify-center ps-2 ">
+            <img alt="Amazon Pay" height="50" ngSrc="/images/amazon-pay.png" width="260">
+          </div>
+          <div class="w-28 h-10 flex items-center justify-center ">
+            <img alt="American Express" height="50" ngSrc="/images/American-Express-Color.png" width="88">
+          </div>
+          <div class="w-28 h-10 flex items-center justify-center ">
+            <img alt="PayPal" height="50" ngSrc="/images/paypal.png" width="88">
+          </div>
+        </div>
+      </div>
+      <div class="flex justify-center gap-x-6 mt-3 md:mt-0 ">
+        <div class="w-24 h-8 rounded-xl overflow-hidden">
+          <img alt="Apple Store" height="50" ngSrc="/images/get-apple-store.png" width="138">
+        </div>
+        <div class="w-24 h-8 rounded-xl overflow-hidden ">
+          <img alt="Google Play" height="50" ngSrc="/images/get-google-play.png" width="138">
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

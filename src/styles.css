@@ -1,1 +1,44 @@
-/* You can add global styles to this file, and also import other style files */
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+.main-slider-container .owl-theme .owl-dots {
+  position: absolute;
+  bottom: 10px; /* Adjust as needed */
+  width: 100%;
+  text-align: center;
+}
+
+.owl-theme .owl-dots .owl-dot span {
+  @apply bg-green-100
+    /* Adjust dot color if needed */
+  ;
+}
+
+.owl-theme .owl-dots .owl-dot.active span {
+  @apply bg-green-600;
+  /* Adjust active dot color if needed */
+}
+
+@theme {
+  --color-main-700: oklch(52.7% 0.154 150.069);
+  --color-main-600: oklch(0.627 0.194 149.214);
+  --color-main-500: oklch(0.723 0.219 149.579);
+  --color-main-50: oklch(98.2% 0.018 155.826);
+}
+@layer components {
+  .active-link {
+    @apply border-indigo-500 text-gray-900;
+  }
+
+  .inactive-link {
+    @apply border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700;
+  }
+
+  .container {
+    @apply mx-auto max-w-7xl px-1 sm:px-3 lg:px-12 pt-18;
+  }
+
+  .btn {
+    @apply flex w-full justify-center rounded-md bg-main-600 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-xs hover:bg-main-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-main-600 cursor-pointer;
+  }
+}

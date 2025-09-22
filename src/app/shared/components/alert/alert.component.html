@@ -1,0 +1,100 @@
+<!-- alert.component.html -->
+@for (alert of (alerts$ | async); track alert.id) {
+  <div
+    role="alert"
+    [class]="{
+      'bg-green-200/70': alert.condition == 1,
+      'dark:bg-green-900/90': alert.condition == 1,
+      'border-green-500/30': alert.condition == 1,
+      'bg-red-100': alert.condition == 5,
+      'dark:bg-red-900/90': alert.condition == 5,
+      'border-red-500/30': alert.condition == 5
+    }"
+    class="pointer-events-auto w-full max-w-sm my-0 sm:my-2  rounded-lg border p-4 shadow-lg backdrop-blur-sm transition-all duration-300"
+  >
+    <div class="flex items-start">
+      <div class="shrink-0">
+        @if (alert.condition === 1) {
+          <svg
+            class="size-6 text-green-500"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            aria-hidden="true"
+            data-slot="icon"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z"
+              clip-rule="evenodd"
+            />
+          </svg>
+        } @else if (alert.condition === 5) {
+          <svg
+            class="size-6 text-red-500"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            aria-hidden="true"
+            data-slot="icon"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16ZM8.28 7.22a.75.75 0 0 0-1.06 1.06L8.94 10l-1.72 1.72a.75.75 0 1 0 1.06 1.06L10 11.06l1.72 1.72a.75.75 0 1 0 1.06-1.06L11.06 10l1.72-1.72a.75.75 0 0 0-1.06-1.06L10 8.94 8.28 7.22Z"
+              clip-rule="evenodd"
+            />
+          </svg>
+        }
+      </div>
+      <div class="ml-3  flex-1 pt-0.5">
+        <p
+          [class]="{
+            'text-green-800 ': alert.condition == 1,
+           ' dark:text-green-200': alert.condition == 1,
+            'text-red-800': alert.condition == 5,
+            'dark:text-red-200': alert.condition == 5
+          }"
+          class="text-sm font-semibold"
+        >
+          @if (alert.condition === 1) {
+            Success
+          } @else {
+            Error
+          }
+        </p>
+        <p
+          [class]="{
+            'text-green-700': alert.condition == 1,
+            'dark:text-green-300': alert.condition == 1,
+            'text-red-700': alert.condition == 5,
+            'dark:text-red-300': alert.condition == 5
+          }"
+          class="mt-1 text-sm"
+        >
+          {{ alert.message }}
+        </p>
+      </div>
+      <div class="ml-4 flex shrink-0">
+        <button
+          (click)="alertService.removeAlert(alert.id)"
+          type="button"
+          [class]="{
+            'text-green-900/70': alert.condition == 1,
+            'hover:text-green-900': alert.condition == 1,
+            'dark:text-green-200/70': alert.condition == 1,
+            'dark:hover:text-green-200': alert.condition == 1,
+            'text-red-900/70': alert.condition == 5,
+            'hover:text-red-900': alert.condition == 5,
+            'dark:text-red-200/70': alert.condition == 5,
+            'dark:hover:text-red-200': alert.condition == 5
+          }"
+          class="inline-flex rounded-md p-1.5 transition focus:outline-none focus:ring-2 focus:ring-offset-2 dark:focus:ring-offset-gray-800 cursor-pointer"
+        >
+          <span class="sr-only">Dismiss</span>
+          <svg class="size-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path
+              d="M6.28 5.22a.75.75 0 00-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 101.06 1.06L10 11.06l3.72 3.72a.75.75 0 101.06-1.06L11.06 10l3.72-3.72a.75.75 0 00-1.06-1.06L10 8.94 6.28 5.22z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+}

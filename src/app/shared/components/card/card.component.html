@@ -1,0 +1,64 @@
+<div class="z-0 h-72 w-full ">
+  <img
+    [ngSrc]="product.imageCover"
+    [priority]="index <= 4"
+    alt="{{ product.slug }}"
+    class="pointer-events-none bg-gray-200  group-hover:opacity-75 h-72 w-full"
+    height="900"
+    width="660"
+  />
+</div>
+<div class="flex flex-1 flex-col space-y-2 p-4 ">
+  <div class="flex items-center justify-between">
+    <h3 class="text-sm font-medium text-gray-900 dark:text-gray-100">
+      <a [routerLink]="['/product-details', product._id, product.slug]">
+        <span aria-hidden="true" class="absolute inset-0 z-10 cursor-default"></span>
+        {{ product.brand.name }}
+      </a>
+    </h3>
+    <span
+      class="pointer-events-none text-sm text-gray-500 dark:text-gray-400 flex items-center justify-between"
+    >
+      <svg viewBox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M12,17.877L18.831,22l-1.813-7.77l6.035-5.228l-7.947-0.674L12,1L8.894,8.328L0.947,9.002l6.035,5.228L5.169,22L12,17.877z"
+          fill="#FFC905"
+        /></svg
+      ><span>{{ product.ratingsAverage }}</span>
+    </span>
+  </div>
+
+  <p class="text-sm text-gray-500 dark:text-gray-400 pb-6">{{ product.title }}</p>
+  <div class="absolute bottom-2">
+    <span class="pointer-events-none text-base text-gray-900 dark:text-gray-100 italic"
+    >{{ product.price }} EGP</span
+    >
+  </div>
+  <button
+    (click)="addToCart(product._id)"
+
+    class="absolute z-20 bottom-2 cursor-pointer -end-10 rounded-full group-hover:end-2 transition-all duration-200 bg-main-600 p-2 text-white shadow-xs hover:bg-main-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-main-600"
+    title="Add to cart"
+    type="button"
+  >
+    <svg class="size-5" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M21 48A5 5 0 1021 58 5 5 0 1021 48zM47 48A5 5 0 1047 58 5 5 0 1047 48zM12.49 14.09l-1-4.24C10.96 7.6 8.94 6 6.62 6H1l1 4h4.62c.47 0 .87.32.98.77l7.09 30.15c.43 1.81 2.03 3.08 3.89 3.08h31.74c1.95 0 3.6-1.39 3.94-3.31l4.09-23.54L12.49 14.09zM43 31l-6.5 1-1 6.5h-3l-1-6.5L25 31v-3l6.5-1 1-6.5h3l1 6.5 6.5 1V31z"
+        fill="#FFFFFF"
+      />
+    </svg>
+  </button>
+  <button
+    (click)="toggleWishList(product._id)"
+    [class]="isProductInWishList ?'text-red-600 hover:text-red-500':'text-main-600 hover:text-main-500'"
+    class="absolute z-20 top-1 start-1 cursor-pointer  p-2   focus-visible:outline-2 focus-visible:outline-offset-2"
+    title="Add to wishlist"
+    type="button"
+  >
+    <svg class="size-6" fill="currentColor" viewBox="0 0 50 50"
+         xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M25 47.300781L24.359375 46.769531C23.144531 45.753906 21.5 44.652344 19.59375 43.378906C12.167969 38.40625 2 31.601563 2 20C2 12.832031 7.832031 7 15 7C18.894531 7 22.542969 8.734375 25 11.699219C27.457031 8.734375 31.105469 7 35 7C42.167969 7 48 12.832031 48 20C48 31.601563 37.832031 38.40625 30.40625 43.378906C28.5 44.652344 26.855469 45.753906 25.640625 46.769531Z"/>
+    </svg>
+  </button>
+</div>
