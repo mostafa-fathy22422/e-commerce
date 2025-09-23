@@ -9,7 +9,6 @@ import {
   Validators,
 } from '@angular/forms';
 import { InputComponent } from '../../shared/components/input/input.component';
-import { AlertService } from '../../core/services/alert.service';
 import { CartService } from '../../core/services/cart/cart.service';
 import { TranslatePipe } from '@ngx-translate/core';
 
@@ -30,7 +29,6 @@ export class CheckOutComponent implements OnInit {
   private route = inject(ActivatedRoute);
   private readonly router = inject(Router);
   private fb = inject(FormBuilder);
-  private alertService = inject(AlertService);
   private cartService = inject(CartService);
   private cartId: string | null = null;
 
