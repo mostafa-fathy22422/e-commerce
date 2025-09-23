@@ -226,7 +226,7 @@
 
       <!-- !   right side-->
       <div class="absolute inset-y-0 end-0 flex items-center pe-2 sm:static sm:inset-auto sm:ms-6 sm:pe-0">
-        <div class="h-full flex space-x-3">
+        <div class="h-full flex sm:space-x-3">
           @if (!isLogin) {
             @for (item of authItems; track $index) {
               <a
@@ -234,10 +234,10 @@
                 routerLinkActive
                 #rlo="routerLinkActive"
                 [routerLinkActiveOptions]="{ exact: false }"
-                class="inline-flex items-center border-b-2 px-1 pt-1 text-sm font-medium"
+                class=" items-center border-b-2 px-1 pt-1 text-sm font-medium"
                 [class]="
-                  rlo.isActive ? 'border-main-500 text-gray-900 dark:text-white'
-                    : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 dark:text-gray-300 dark:hover:text-white'
+                  rlo.isActive ? 'border-main-500 text-gray-900 dark:text-white hidden sm:inline-flex'
+                    : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 dark:text-gray-300 dark:hover:text-white inline-flex'
                 "
               >
                 {{ item.name | translate }}

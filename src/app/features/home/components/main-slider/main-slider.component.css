@@ -1,0 +1,18 @@
+owl-carousel-o {
+  min-height: 10.5rem; /* 52 * 0.25rem = 10.5rem */
+}
+
+owl-carousel-o .owl-stage {
+  min-height: 10.5rem;
+}
+
+owl-carousel-o .owl-item {
+  min-height: 10.5rem;
+}
+
+owl-carousel-o .owl-item img {
+  min-height: 10.5rem;
+  object-fit: cover;
+  width: 100%;
+  height: auto;
+}

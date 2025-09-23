@@ -110,10 +110,11 @@
   "checkout": {
     "Cash_on_Delivery": "الدفع عند الاستلام",
     "Credit_Card": "بطاقة الائتمان",
-    "Shipping_Address": "عنوان الشحن",
-    "Details": "تفاصيل",
     "Phone": "رقم الهاتف",
-    "City": "المدينة"
+    "City": "المدينة",
+    "Address": "العنوان",
+    "Payment": "طريقه الدفع",
+    "Confirm order": "تأكيد الطلب"
   }
 }
 

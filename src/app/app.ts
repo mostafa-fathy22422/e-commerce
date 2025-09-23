@@ -19,7 +19,6 @@ export class App implements OnInit {
   WishList!: boolean;
   isLogin: boolean = false;
   private authService = inject(AuthService);
-  // protected readonly title = signal('commerce');
   constructor(
     protected alertService: AlertService,
     private themeService: ThemeService,

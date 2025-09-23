@@ -6,7 +6,11 @@ import { PopularProductsComponent } from './components/popular-products/popular-
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [MainSliderComponent, PopularCategoriesComponent, PopularProductsComponent],
+  imports: [
+    MainSliderComponent,
+    PopularCategoriesComponent,
+    PopularProductsComponent,
+  ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })

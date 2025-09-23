@@ -98,6 +98,9 @@
     "Shipping_Address": "Shipping Address",
     "Details": "Details",
     "Phone": "Phone",
-    "City": "City"
+    "City": "City",
+    "Address": "Address",
+    "Payment": "Payment",
+    "Confirm order": "Confirm order"
   }
 }

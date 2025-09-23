@@ -29,6 +29,7 @@ export class MainSliderComponent {
     autoplayHoverPause: true,
     lazyLoad: true,
     autoHeight: true,
+    autoWidth: true,
     autoplaySpeed: 1000,
     rtl: true,
     // rewind: true,

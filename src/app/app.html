@@ -1,20 +1,22 @@
-<app-navbar #nav (showWishList)="showWishList($event)" [showWishListChange]="WishList"/>
+<app-navbar (showWishList)="showWishList($event)" [showWishListChange]="WishList"/>
 <section class="bg-white dark:bg-gray-900">
   <router-outlet/>
 </section>
 @defer (on immediate) {
-  <!-- Alert container -->
   <div aria-live="assertive"
        class="pointer-events-none fixed  top-20 inset-0 z-50 flex right-0 px-4 py-6  w-full items-start  sm:p-6">
     <div class="flex  w-full flex-col space-y-4 items-end">
       <app-alert></app-alert>
     </div>
   </div>
-  @if (isLogin) {
-    <app-wish-list [showWishList]="WishList" (showWishListChange)="showWishList($event)"/>
-  }
+
 }
-@defer {
+@if (WishList) {
+  <app-wish-list [showWishList]="WishList" (showWishListChange)="showWishList($event)"/>
+}
+@defer(on viewport) {
   <app-footer/>
+}@placeholder {
+  <div class="h-20 bg-gray-100 dark:bg-gray-800"></div>
 }
 

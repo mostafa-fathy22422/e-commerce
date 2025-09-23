@@ -28,7 +28,7 @@ export class AlertService implements OnDestroy {
     // Automatically remove the alert after 5 seconds.
     setTimeout(() => {
       this.removeAlert(id);
-    }, 5000);
+    }, 2000);
   }
 
   removeAlert(id: number): void {

@@ -11,10 +11,11 @@ import {
 import { InputComponent } from '../../shared/components/input/input.component';
 import { AlertService } from '../../core/services/alert.service';
 import { CartService } from '../../core/services/cart/cart.service';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-check-out',
-  imports: [FormsModule, ReactiveFormsModule, InputComponent],
+  imports: [FormsModule, ReactiveFormsModule, InputComponent, TranslatePipe],
   templateUrl: './checkout.component.html',
   styleUrl: './checkout.component.css',
 })
@@ -43,16 +44,12 @@ export class CheckOutComponent implements OnInit {
 
   handleSubmit(): void {
     if (this.checkoutForm.invalid) {
-      this.alertService.addAlert(5, 'Please fill in all required fields.');
       this.checkoutForm.markAllAsTouched();
       return;
     }
-
     if (!this.cartId) {
-      this.alertService.addAlert(5, 'Cart ID is missing. Cannot proceed with checkout.');
       return;
     }
-
     this.isLoading = true;
     this.checkout();
   }
@@ -69,13 +66,9 @@ export class CheckOutComponent implements OnInit {
     checkoutObservable.pipe(finalize(() => (this.isLoading = false))).subscribe({
       next: () => {
         if (paymentMethod === 'delivered') {
-          this.alertService.addAlert(1, 'Order placed successfully.');
           this.router.navigate(['/allorders']);
         }
-      },
-      error: (err) => {
-        this.alertService.addAlert(5, err.error.message || 'Checkout failed.');
-      },
+      }
     });
   }
 
