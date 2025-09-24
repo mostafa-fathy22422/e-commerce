@@ -1,15 +1,10 @@
 <section #productsSection class="container min-h-screen ">
   <div class="mb-5 sm:mt-0  flex flex-col sm:flex-row justify-between items-center mx-2 gap-4">
-    <!-- Search Bar -->
-    <!--    <div class="w-full sm:w-auto order-1 sm:order-none">-->
-    <!--      <app-search (searchEvent)="onSearchChange($event)"></app-search>-->
-    <!--    </div>-->
-
     <!-- Items Per Page Dropdown -->
     <div class="grid w-full max-w-16 grid-cols-1 order-2 ">
       <select
-        (ngModelChange)="onItemsPerPageChange(itemsPerPage)"
         [(ngModel)]="itemsPerPage"
+        (ngModelChange)="onItemsPerPageChange(itemsPerPage)"
         aria-label="Items per page"
         class="col-start-1 row-start-1 appearance-none rounded-md bg-white dark:bg-gray-700 py-1.5 pr-8 pl-3 text-base text-gray-900 dark:text-gray-200 outline-1 -outline-offset-1 outline-gray-300 dark:outline-gray-600 focus:outline-2 focus:-outline-offset-2 focus:outline-main-500 sm:text-sm/6"
         name="items-per-page"
@@ -39,6 +34,7 @@
 
   </div>
   <div class="">
+
     <ul
       class="grid mb-4 grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 mx-2 xl:grid-cols-6 "
       role="list"

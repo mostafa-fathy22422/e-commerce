@@ -47,7 +47,6 @@ export class ProductsComponent implements OnInit, OnDestroy {
   @ViewChild('productsSection') productsSection!: ElementRef;
 
   private destroy$ = new Subject<void>();
-
   private readonly platformId = inject(PLATFORM_ID);
   private readonly productsService = inject(ProductsService);
   private readonly cdr = inject(ChangeDetectorRef);
@@ -73,6 +72,7 @@ export class ProductsComponent implements OnInit, OnDestroy {
       // to update the heart icon state in the card components.
       this.cdr.markForCheck();
     });
+    // Listen for search input changes
   }
 
   // !call API
@@ -113,19 +113,12 @@ export class ProductsComponent implements OnInit, OnDestroy {
 
   onItemsPerPageChange(numberOfPage: number): void {
     this.itemsPerPage = Number(numberOfPage);
+    // Update URL to reflect changes
     this.router.navigate([], {
       relativeTo: this.route,
-      queryParams: { page: 1, limit: this.itemsPerPage }, // Reset to page 1 when limit changes
+      queryParams: { page: 1, limit: this.itemsPerPage },
       queryParamsHandling: 'merge',
     });
-  }
-
-  trackByProductId(index: number, product: Product): string {
-    return product.id;
-  }
-
-  trackByIndex(index: number): number {
-    return index;
   }
 
   ngOnDestroy(): void {

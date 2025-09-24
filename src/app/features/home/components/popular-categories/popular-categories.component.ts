@@ -56,11 +56,8 @@ export class PopularCategoriesComponent implements OnInit {
   constructor(private readonly categoriesService: CategoriesService) {}
 
   ngOnInit(): void {
-    this.getAllCategories();
-  }
-
-  getAllCategories(): void {
-    this.categoriesService.getAllCategories().subscribe({
+  //  this.getAllCategories();
+    this.categoriesService.allCategories$.subscribe({
       next: (res) => {
         this.categories = res.data;
         this.isLoading = false;
@@ -70,5 +67,19 @@ export class PopularCategoriesComponent implements OnInit {
         this.isLoading = false;
       },
     });
-  }
+
+    }
+
+  // getAllCategories(): void {
+  //   this.categoriesService.getAllCategories().subscribe({
+  //     next: (res) => {
+  //       this.categories = res.data;
+  //       this.isLoading = false;
+  //     },
+  //     error: (err) => {
+  //       console.error('Error fetching categories:', err);
+  //       this.isLoading = false;
+  //     },
+  //   });
+  // }
 }
