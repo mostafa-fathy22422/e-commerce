@@ -82,7 +82,7 @@ export class CartService {
     }
 
     if (newCount < 1) {
-      this.removeFromCart(productId).subscribe();
+     // this.removeFromCart(productId).subscribe();
     } else {
       this.updateProductQuantity(productId, newCount).subscribe();
     }
